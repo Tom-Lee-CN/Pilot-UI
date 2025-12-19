@@ -1,0 +1,536 @@
+// ==========================================================================
+// Design Tokens
+// ==========================================================================
+//
+// 本文件集中定义了整个 UI 库的设计令牌 (Design Tokens)。
+// 设计令牌是所有设计规范（如颜色、排版、间距等）的唯一真实来源 (Single Source of Truth)。
+//
+// 我们定义了两种类型的变量：
+// 1. Sass 变量：用于编译时逻辑（例如，在 mixin 或函数中）。以 `$` 开头。
+// 2. CSS 自定义属性 (CSS 变量)：用于运行时样式。它们允许在浏览器中动态更改样式（例如，用于主题切换）。
+//    它们在 `:root` 作用域内定义，并以 `--` 开头。
+
+// ==========================================================================
+// Sass 变量 (用于编译时逻辑)
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// 颜色 (Colors)
+// --------------------------------------------------------------------------
+
+// 品牌色 (Brand Colors)
+$primary-color: #409eff;
+$success-color: #67c23a;
+$warning-color: #e6a23c;
+$danger-color: #f56c6c;
+$info-color: #909399;
+
+// 文字色 (Text Colors)
+$text-color-primary: #303133; // 主要文字
+$text-color-regular: #606266; // 常规文字
+$text-color-secondary: #909399; // 次要文字 (如辅助信息、说明)
+$text-color-placeholder: #c0c4cc; // 表单占位符
+
+// 边框色 (Border Colors)
+$border-color: #dcdfe6; // 默认边框色
+$border-color-light: #e4e7ed;
+$border-color-lighter: #ebeef5;
+$border-color-extra-light: #f2f6fc;
+
+// 填充色 (Fill Colors / Backgrounds)
+$fill-color-blank: #ffffff; // 空白页背景
+$fill-color-light: #f5f7fa; // 浅色背景 (如卡片、表格)
+
+// 基础色 (Basic Colors)
+$color-white: #ffffff;
+$color-black: #000000;
+
+// --------------------------------------------------------------------------
+// 边框 (Border)
+// --------------------------------------------------------------------------
+$border-width-base: 1px;
+$border-style-base: solid;
+$border-base: $border-width-base $border-style-base $border-color; // 复合边框属性
+$border-radius-base: 4px !default;
+
+// --------------------------------------------------------------------------
+// 字体 (Font)
+// --------------------------------------------------------------------------
+// 行高
+$font-line-height-base: 1.5 !default;
+
+// 字重 (Font Weights)
+$font-weight-primary: 500;
+
+// 字号 (Font Sizes)
+$font-size-extra-large: 20px;
+$font-size-large: 18px;
+$font-size-medium: 16px;
+$font-size-base: 14px;
+$font-size-small: 13px;
+$font-size-extra-small: 12px;
+
+// --------------------------------------------------------------------------
+// 阴影 (Box Shadow)
+// --------------------------------------------------------------------------
+$box-shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+$box-shadow-dark:
+  0 2px 4px rgba(0, 0, 0, 0.12),
+  0 0 6px rgba(0, 0, 0, 0.04) !default;
+
+// --------------------------------------------------------------------------
+// 按钮组件 (Button Component)
+// --------------------------------------------------------------------------
+// 内边距 (Padding)
+$button-padding-y-default: 12px;
+$button-padding-x-default: 20px;
+$button-padding-y-large: 14px;
+$button-padding-x-large: 22px;
+$button-padding-y-small: 9px;
+$button-padding-x-small: 15px;
+
+// 圆角 (Border Radius)
+$button-border-radius-default: 4px;
+$button-border-radius-round: 20px;
+
+// --------------------------------------------------------------------------
+// 警告框组件 (Alert Component)
+// --------------------------------------------------------------------------
+$alert-padding-y: 4px;
+$alert-padding-x: 8px;
+$alert-border-radius: 4px;
+$alert-title-font-size: $font-size-small; // 13px
+$alert-description-font-size: $font-size-extra-small; // 12px
+$alert-icon-size: 20px;
+$alert-icon-margin-right: 0px;
+$alert-close-font-size: $font-size-extra-small; // 12px
+
+// --------------------------------------------------------------------------
+// 卡片组件 (Card Component)
+// --------------------------------------------------------------------------
+$card-border-radius: 4px;
+$card-padding: 20px;
+$card-header-padding-y: 18px;
+$card-header-padding-x: 20px;
+$card-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+$card-box-shadow: $box-shadow-base;
+
+// --------------------------------------------------------------------------
+// 输入框组件 (Input Component)
+// --------------------------------------------------------------------------
+$input-height: 40px;
+$input-padding-x: 15px;
+$input-border-radius: 4px;
+$input-font-size: $font-size-base;
+$input-color: $text-color-regular;
+$input-placeholder-color: $text-color-placeholder;
+$input-disabled-bg: $fill-color-light;
+$input-disabled-border: $border-color-light;
+$input-disabled-color: $text-color-placeholder;
+$input-focus-border-color: $primary-color;
+$input-suffix-right: 10px;
+$input-suffix-icon-color: $text-color-placeholder;
+$input-suffix-icon-hover-color: $text-color-secondary;
+
+// --------------------------------------------------------------------------
+// Radio Component
+// --------------------------------------------------------------------------
+$radio-font-size: $font-size-base !default;
+$radio-font-weight: $font-weight-primary !default;
+$radio-text-color: $text-color-regular !default;
+$radio-input-height: 14px !default;
+$radio-input-width: 14px !default;
+$radio-input-border-radius: 100% !default;
+$radio-input-border-color: $border-color !default;
+$radio-input-background-color: $color-white !default;
+$radio-input-dot-size: 4px !default;
+$radio-input-dot-color: $color-white !default;
+$radio-disabled-text-color: $text-color-placeholder !default;
+$radio-label-padding-left: 5px !default;
+$radio-margin-right: 30px !default;
+
+// --------------------------------------------------------------------------
+// Select Component
+// --------------------------------------------------------------------------
+$select-input-height: $input-height !default;
+$select-input-color: $input-color !default;
+$select-input-placeholder-color: $input-placeholder-color !default;
+$select-input-border-color: $border-color !default;
+$select-input-border-radius: $input-border-radius !default;
+$select-input-hover-border-color: $text-color-placeholder !default;
+$select-disabled-bg: $input-disabled-bg !default;
+$select-disabled-border-color: $input-disabled-border !default;
+$select-disabled-color: $input-disabled-color !default;
+$select-dropdown-bg: $color-white !default;
+$select-dropdown-shadow: $card-box-shadow !default;
+$select-dropdown-border-color: $border-color-light !default;
+$select-dropdown-padding: 6px 0 !default;
+$select-option-height: 34px !default;
+$select-option-font-size: $font-size-base !default;
+$select-option-text-color: $text-color-regular !default;
+$select-option-hover-bg: $fill-color-light !default;
+$select-option-selected-color: $primary-color !default;
+$select-option-selected-font-weight: 700 !default;
+
+// --------------------------------------------------------------------------
+// Textarea Component
+// --------------------------------------------------------------------------
+$textarea-padding-y: 5px !default;
+$textarea-padding-x: 15px !default;
+$textarea-line-height: 1.5 !default;
+$textarea-color: $input-color !default;
+$textarea-bg: $color-white !default;
+$textarea-border-color: $border-color !default;
+$textarea-border-radius: $input-border-radius !default;
+$textarea-placeholder-color: $input-placeholder-color !default;
+$textarea-focus-border-color: $input-focus-border-color !default;
+$textarea-disabled-bg: $input-disabled-bg !default;
+$textarea-disabled-border-color: $input-disabled-border !default;
+$textarea-disabled-color: $input-disabled-color !default;
+$textarea-count-color: $text-color-secondary !default;
+$textarea-count-font-size: $font-size-extra-small !default;
+
+// --------------------------------------------------------------------------
+// Modal Component
+// --------------------------------------------------------------------------
+$modal-z-index: 2010 !default;
+$modal-fade-duration: 0.3s !default;
+$modal-title-font-size: $font-size-large !default;
+$modal-content-font-size: $font-size-base !default;
+$modal-font-line-height: $font-line-height-base !default;
+$modal-padding-primary: 20px !default;
+$modal-border-radius: $border-radius-base !default;
+$modal-box-shadow: $box-shadow-dark !default;
+$modal-header-padding: 20px 20px 10px !default;
+$modal-body-padding: 30px 20px !default;
+$modal-footer-padding: 10px 20px 0px !default;
+$modal-header-bg-color: $color-white !default;
+$modal-close-color: $text-color-primary !default;
+$modal-close-font-size: 16px !default;
+
+// --------------------------------------------------------------------------
+// Message Component
+// --------------------------------------------------------------------------
+$message-padding: 15px 20px;
+$message-border-radius: $border-radius-base;
+$message-background-color: $color-white;
+$message-box-shadow: $box-shadow-base;
+$message-font-size: $font-size-base;
+$message-icon-size: 16px;
+$message-icon-margin-right: 10px;
+$message-close-size: 16px;
+$message-close-margin-left: 10px;
+$message-info-color: $info-color;
+$message-success-color: $success-color;
+$message-warning-color: $warning-color;
+$message-error-color: $danger-color;
+
+// --------------------------------------------------------------------------
+// Switch Component
+// --------------------------------------------------------------------------
+$switch-height: 20px !default;
+$switch-width: 40px !default;
+$switch-on-color: $primary-color !default;
+$switch-off-color: $border-color !default;
+$switch-disabled-opacity: 0.6 !default;
+$switch-border-radius: 10px !default;
+$switch-action-size: 16px !default;
+$switch-action-offset: 1px !default;
+$switch-action-bg: $color-white !default;
+
+// --------------------------------------------------------------------------
+// Tabs Component
+// --------------------------------------------------------------------------
+$tabs-header-height: 40px !default;
+$tabs-header-padding: 0 20px !default;
+$tabs-header-bg-color: $fill-color-light !default;
+$tabs-border-color: $border-color-light !default;
+$tabs-font-size: $font-size-base !default;
+$tabs-text-color: $text-color-regular !default;
+$tabs-active-text-color: $primary-color !default;
+$tabs-active-bar-height: 2px !default;
+$tabs-hover-text-color: $primary-color !default;
+
+// --------------------------------------------------------------------------
+// Drawer Component
+// --------------------------------------------------------------------------
+$drawer-z-index: 2000 !default;
+$drawer-bg-color: $color-white !default;
+$drawer-box-shadow: $box-shadow-dark !default;
+$drawer-header-padding: 20px !default;
+$drawer-body-padding: 20px !default;
+$drawer-title-font-size: $font-size-large !default;
+$drawer-close-font-size: 16px !default;
+$drawer-animation-duration: 0.3s !default;
+
+// --------------------------------------------------------------------------
+// Menu Component
+// --------------------------------------------------------------------------
+$menu-bg-color: $color-white !default;
+$menu-text-color: $text-color-primary !default;
+$menu-hover-bg-color: $fill-color-light !default;
+$menu-active-text-color: $primary-color !default;
+$menu-item-height: 56px !default;
+$menu-item-font-size: $font-size-base !default;
+$menu-sub-item-bg-color: $fill-color-light !default;
+
+// --------------------------------------------------------------------------
+// Backtop Component
+// --------------------------------------------------------------------------
+$backtop-bg-color: $color-white !default;
+$backtop-text-color: $primary-color !default;
+$backtop-hover-bg-color: $primary-color !default;
+$backtop-hover-text-color: $color-white !default;
+$backtop-font-size: 20px !default;
+$backtop-size: 40px !default;
+$backtop-border-radius: 50% !default;
+$backtop-box-shadow: $box-shadow-base !default;
+
+// --------------------------------------------------------------------------
+// Icon Component
+// --------------------------------------------------------------------------
+$icon-color: inherit !default; // 默认继承父元素颜色
+
+// --------------------------------------------------------------------------
+// Link Component
+// --------------------------------------------------------------------------
+$link-font-size: $font-size-base !default;
+$link-font-weight: 500 !default;
+$link-default-text-color: $text-color-regular !default;
+$link-default-hover-text-color: $primary-color !default;
+$link-disabled-text-color: $text-color-placeholder !default;
+
+// ==========================================================================
+// CSS 自定义属性 (用于运行时样式)
+// ==========================================================================
+//
+// 这些变量会暴露给浏览器，可以直接在组件样式中使用。
+// 它们由上面的 Sass 变量生成，以确保一致性。
+//
+:root {
+  // 颜色 (Colors)
+  --pilot-color-primary: #{$primary-color};
+  --pilot-color-success: #{$success-color};
+  --pilot-color-warning: #{$warning-color};
+  --pilot-color-danger: #{$danger-color};
+  --pilot-color-info: #{$info-color};
+
+  // 文字色 (Text Colors)
+  --pilot-text-color-primary: #{$text-color-primary};
+  --pilot-text-color-regular: #{$text-color-regular};
+  --pilot-text-color-secondary: #{$text-color-secondary};
+  --pilot-text-color-placeholder: #{$text-color-placeholder};
+
+  // 边框色 (Border Colors)
+  --pilot-border-color: #{$border-color};
+  --pilot-border-color-light: #{$border-color-light};
+  --pilot-border-color-lighter: #{$border-color-lighter};
+  --pilot-border-color-extra-light: #{$border-color-extra-light};
+  --pilot-border-base: #{$border-base};
+
+  // 填充色 (Fill Colors)
+  --pilot-fill-color-blank: #{$fill-color-blank};
+  --pilot-fill-color-light: #{$fill-color-light};
+
+  // 基础色 (Basic Colors)
+  --pilot-color-white: #{$color-white};
+  --pilot-color-black: #{$color-black};
+
+  // 阴影 (Box Shadow)
+  --pilot-box-shadow-base: #{$box-shadow-base};
+  --pilot-box-shadow-dark: #{$box-shadow-dark};
+
+  // 字体 (Font)
+  --pilot-font-weight-primary: #{$font-weight-primary};
+  --pilot-font-size-extra-large: #{$font-size-extra-large};
+  --pilot-font-size-large: #{$font-size-large};
+  --pilot-font-size-medium: #{$font-size-medium};
+  --pilot-font-size-base: #{$font-size-base};
+  --pilot-font-size-small: #{$font-size-small};
+  --pilot-font-size-extra-small: #{$font-size-extra-small};
+
+  // 间距 (Spacing)
+  --pilot-spacing-base: 20px;
+
+  // 按钮组件 (Button Component)
+  --pilot-button-padding-y-default: #{$button-padding-y-default};
+  --pilot-button-padding-x-default: #{$button-padding-x-default};
+  --pilot-button-padding-y-large: #{$button-padding-y-large};
+  --pilot-button-padding-x-large: #{$button-padding-x-large};
+  --pilot-button-padding-y-small: #{$button-padding-y-small};
+  --pilot-button-padding-x-small: #{$button-padding-x-small};
+  --pilot-button-border-radius-default: #{$button-border-radius-default};
+  --pilot-button-border-radius-round: #{$button-border-radius-round};
+
+  // 警告框组件 (Alert Component)
+  --pilot-alert-padding-y: #{$alert-padding-y};
+  --pilot-alert-padding-x: #{$alert-padding-x};
+  --pilot-alert-border-radius: #{$alert-border-radius};
+  --pilot-alert-title-font-size: #{$alert-title-font-size};
+  --pilot-alert-description-font-size: #{$alert-description-font-size};
+  --pilot-alert-icon-size: #{$alert-icon-size};
+  --pilot-alert-icon-margin-right: #{$alert-icon-margin-right};
+  --pilot-alert-close-font-size: #{$alert-close-font-size};
+
+  // 卡片组件 (Card Component)
+  --pilot-card-border-radius: #{$card-border-radius};
+  --pilot-card-padding: #{$card-padding};
+  --pilot-card-header-padding-y: #{$card-header-padding-y};
+  --pilot-card-header-padding-x: #{$card-header-padding-x};
+  --pilot-card-box-shadow: #{$card-box-shadow};
+
+  // 输入框组件 (Input Component)
+  --pilot-input-height: #{$input-height};
+  --pilot-input-padding-x: #{$input-padding-x};
+  --pilot-input-border-radius: #{$input-border-radius};
+  --pilot-input-font-size: #{$input-font-size};
+  --pilot-input-color: #{$input-color};
+  --pilot-input-placeholder-color: #{$input-placeholder-color};
+  --pilot-input-disabled-bg: #{$input-disabled-bg};
+  --pilot-input-disabled-border: #{$input-disabled-border};
+  --pilot-input-disabled-color: #{$input-disabled-color};
+  --pilot-input-focus-border-color: #{$input-focus-border-color};
+  --pilot-input-suffix-right: #{$input-suffix-right};
+  --pilot-input-suffix-icon-color: #{$input-suffix-icon-color};
+  --pilot-input-suffix-icon-hover-color: #{$input-suffix-icon-hover-color};
+
+  // Radio Component
+  --pilot-radio-font-size: #{$radio-font-size};
+  --pilot-radio-font-weight: #{$radio-font-weight};
+  --pilot-radio-text-color: #{$radio-text-color};
+  --pilot-radio-input-height: #{$radio-input-height};
+  --pilot-radio-input-width: #{$radio-input-width};
+  --pilot-radio-input-border-radius: #{$radio-input-border-radius};
+  --pilot-radio-input-border-color: #{$radio-input-border-color};
+  --pilot-radio-input-background-color: #{$radio-input-background-color};
+  --pilot-radio-input-dot-size: #{$radio-input-dot-size};
+  --pilot-radio-input-dot-color: #{$radio-input-dot-color};
+  --pilot-radio-disabled-text-color: #{$radio-disabled-text-color};
+  --pilot-radio-label-padding-left: #{$radio-label-padding-left};
+  --pilot-radio-margin-right: #{$radio-margin-right};
+
+  // Select Component
+  --pilot-select-input-height: #{$select-input-height};
+  --pilot-select-input-color: #{$select-input-color};
+  --pilot-select-input-placeholder-color: #{$select-input-placeholder-color};
+  --pilot-select-input-border-color: #{$select-input-border-color};
+  --pilot-select-input-border-radius: #{$select-input-border-radius};
+  --pilot-select-input-hover-border-color: #{$select-input-hover-border-color};
+  --pilot-select-disabled-bg: #{$select-disabled-bg};
+  --pilot-select-disabled-border-color: #{$select-disabled-border-color};
+  --pilot-select-disabled-color: #{$select-disabled-color};
+  --pilot-select-dropdown-bg: #{$select-dropdown-bg};
+  --pilot-select-dropdown-shadow: #{$select-dropdown-shadow};
+  --pilot-select-dropdown-border-color: #{$select-dropdown-border-color};
+  --pilot-select-dropdown-padding: #{$select-dropdown-padding};
+  --pilot-select-option-height: #{$select-option-height};
+  --pilot-select-option-font-size: #{$select-option-font-size};
+  --pilot-select-option-text-color: #{$select-option-text-color};
+  --pilot-select-option-hover-bg: #{$select-option-hover-bg};
+  --pilot-select-option-selected-color: #{$select-option-selected-color};
+  --pilot-select-option-selected-font-weight: #{$select-option-selected-font-weight};
+
+  // Textarea Component
+  --pilot-textarea-padding-y: #{$textarea-padding-y};
+  --pilot-textarea-padding-x: #{$textarea-padding-x};
+  --pilot-textarea-line-height: #{$textarea-line-height};
+  --pilot-textarea-color: #{$textarea-color};
+  --pilot-textarea-bg: #{$textarea-bg};
+  --pilot-textarea-border-color: #{$textarea-border-color};
+  --pilot-textarea-border-radius: #{$textarea-border-radius};
+  --pilot-textarea-placeholder-color: #{$textarea-placeholder-color};
+  --pilot-textarea-focus-border-color: #{$textarea-focus-border-color};
+  --pilot-textarea-disabled-bg: #{$textarea-disabled-bg};
+  --pilot-textarea-disabled-border-color: #{$textarea-disabled-border-color};
+  --pilot-textarea-disabled-color: #{$textarea-disabled-color};
+  --pilot-textarea-count-color: #{$textarea-count-color};
+  --pilot-textarea-count-font-size: #{$textarea-count-font-size};
+
+  // Modal Component
+  --pilot-modal-z-index: #{$modal-z-index};
+  --pilot-modal-fade-duration: #{$modal-fade-duration};
+  --pilot-modal-title-font-size: #{$modal-title-font-size};
+  --pilot-modal-content-font-size: #{$modal-content-font-size};
+  --pilot-modal-font-line-height: #{$modal-font-line-height};
+  --pilot-modal-padding-primary: #{$modal-padding-primary};
+  --pilot-modal-border-radius: #{$modal-border-radius};
+  --pilot-modal-box-shadow: #{$modal-box-shadow};
+  --pilot-modal-header-padding: #{$modal-header-padding};
+  --pilot-modal-body-padding: #{$modal-body-padding};
+  --pilot-modal-footer-padding: #{$modal-footer-padding};
+  --pilot-modal-header-bg-color: #{$modal-header-bg-color};
+  --pilot-modal-close-color: #{$modal-close-color};
+  --pilot-modal-close-font-size: #{$modal-close-font-size};
+
+  // Message Component
+  --pilot-message-padding: #{$message-padding};
+  --pilot-message-border-radius: #{$message-border-radius};
+  --pilot-message-background-color: #{$message-background-color};
+  --pilot-message-box-shadow: #{$message-box-shadow};
+  --pilot-message-font-size: #{$message-font-size};
+  --pilot-message-icon-size: #{$message-icon-size};
+  --pilot-message-icon-margin-right: #{$message-icon-margin-right};
+  --pilot-message-close-size: #{$message-close-size};
+  --pilot-message-close-margin-left: #{$message-close-margin-left};
+
+  // Switch Component
+  --pilot-switch-height: #{$switch-height};
+  --pilot-switch-width: #{$switch-width};
+  --pilot-switch-on-color: #{$switch-on-color};
+  --pilot-switch-off-color: #{$switch-off-color};
+  --pilot-switch-disabled-opacity: #{$switch-disabled-opacity};
+  --pilot-switch-border-radius: #{$switch-border-radius};
+  --pilot-switch-action-size: #{$switch-action-size};
+  --pilot-switch-action-offset: #{$switch-action-offset};
+  --pilot-switch-action-bg: #{$switch-action-bg};
+
+  // Tabs Component
+  --pilot-tabs-header-height: #{$tabs-header-height};
+  --pilot-tabs-header-padding: #{$tabs-header-padding};
+  --pilot-tabs-header-bg-color: #{$tabs-header-bg-color};
+  --pilot-tabs-border-color: #{$tabs-border-color};
+  --pilot-tabs-font-size: #{$tabs-font-size};
+  --pilot-tabs-text-color: #{$tabs-text-color};
+  --pilot-tabs-active-text-color: #{$tabs-active-text-color};
+  --pilot-tabs-active-bar-height: #{$tabs-active-bar-height};
+  --pilot-tabs-hover-text-color: #{$tabs-hover-text-color};
+
+  // Drawer Component
+  --pilot-drawer-z-index: #{$drawer-z-index};
+  --pilot-drawer-bg-color: #{$drawer-bg-color};
+  --pilot-drawer-box-shadow: #{$drawer-box-shadow};
+  --pilot-drawer-header-padding: #{$drawer-header-padding};
+  --pilot-drawer-body-padding: #{$drawer-body-padding};
+  --pilot-drawer-title-font-size: #{$drawer-title-font-size};
+  --pilot-drawer-close-font-size: #{$drawer-close-font-size};
+  --pilot-drawer-animation-duration: #{$drawer-animation-duration};
+
+  // Menu Component
+  --pilot-menu-bg-color: #{$menu-bg-color};
+  --pilot-menu-text-color: #{$menu-text-color};
+  --pilot-menu-hover-bg-color: #{$menu-hover-bg-color};
+  --pilot-menu-active-text-color: #{$menu-active-text-color};
+  --pilot-menu-item-height: #{$menu-item-height};
+  --pilot-menu-item-font-size: #{$menu-item-font-size};
+  --pilot-menu-sub-item-bg-color: #{$menu-sub-item-bg-color};
+
+  // Backtop Component
+  --pilot-backtop-bg-color: #{$backtop-bg-color};
+  --pilot-backtop-text-color: #{$backtop-text-color};
+  --pilot-backtop-hover-bg-color: #{$backtop-hover-bg-color};
+  --pilot-backtop-hover-text-color: #{$backtop-hover-text-color};
+  --pilot-backtop-font-size: #{$backtop-font-size};
+  --pilot-backtop-size: #{$backtop-size};
+  --pilot-backtop-border-radius: #{$backtop-border-radius};
+  --pilot-backtop-box-shadow: #{$backtop-box-shadow};
+
+  // Icon Component
+  --pilot-icon-color: #{$icon-color};
+
+  // Link Component
+  --pilot-link-font-size: #{$link-font-size};
+  --pilot-link-font-weight: #{$link-font-weight};
+  --pilot-link-default-text-color: #{$link-default-text-color};
+  --pilot-link-default-hover-text-color: #{$link-default-hover-text-color};
+  --pilot-link-disabled-text-color: #{$link-disabled-text-color};
+}

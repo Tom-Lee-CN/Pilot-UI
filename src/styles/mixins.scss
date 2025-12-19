@@ -1,0 +1,70 @@
+@forward 'variables';
+@use 'sass:color';
+@use 'variables' as *;
+/**
+ * 创建一个按钮变体 (variant) 的 mixin
+ * @param {Color} $color - 基础颜色
+ * @returns {CssRule} - 生成按钮在 normal, hover, active 状态下的样式
+ */
+@mixin button-variant($color) {
+  color: $color-white;
+  background-color: $color;
+  border-color: $color;
+
+  &:hover {
+    // 使用 sass:color 的 scale 函数动态调整颜色
+    // 将颜色亮度提高 10% 作为悬浮状态的颜色
+    background-color: color.scale($color, $lightness: 20%);
+    border-color: color.scale($color, $lightness: 20%);
+  }
+
+  &:active {
+    // 将颜色亮度降低 10% 作为激活状态的颜色
+    background-color: color.scale($color, $lightness: -10%);
+    border-color: color.scale($color, $lightness: -10%);
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px color.scale($color, $alpha: -50%);
+  }
+}
+
+/**
+ * 创建一个朴素按钮 (plain button) 的 mixin
+ * @param {Color} $color - 基础颜色
+ */
+@mixin button-plain-variant($color) {
+  background: transparent;
+  border-color: $color;
+  color: $color;
+
+  &:hover,
+  &:focus {
+    background: $color;
+    border-color: $color;
+    color: $color-white;
+  }
+
+  &:active {
+    background-color: color.scale($color, $lightness: -10%);
+    border-color: color.scale($color, $lightness: -10%);
+    color: $color-white;
+  }
+}
+
+/**
+ * 创建一个警告框 (alert) 的 mixin
+ * @param {Color} $color - 基础颜色
+ */
+@mixin alert-variant($color) {
+  background-color: color.scale($color, $lightness: 90%);
+  color: $color;
+
+  .pilot-alert__description {
+    color: $color;
+  }
+
+  .pilot-alert__close-btn {
+    color: $color;
+  }
+}

@@ -1,0 +1,8 @@
+// 1. 导入变量 (最先，因为其他文件可能依赖它)
+@forward 'variables';
+
+// 2. 导入 Mixins (依赖 variables)
+@use 'mixins';
+
+// 3. 导入基础和重置样式 (可能依赖 variables)
+@use 'base';

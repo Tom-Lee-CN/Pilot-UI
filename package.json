@@ -1,0 +1,33 @@
+{
+  "name": "pilot-ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+"scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "format": "prettier --write \"./**/*.{vue,js,jsx,json}\""
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "axios": "^1.13.2",
+    "pinia": "^3.0.4",
+    "vue": "^3.5.24",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@typescript-eslint/parser": "^8.49.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-vue": "^10.6.2",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.4",
+    "vite": "^7.2.4",
+    "vue-eslint-parser": "^10.2.0"
+  }
+}
