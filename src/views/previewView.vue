@@ -1,8 +1,8 @@
 <template>
-  <pilot-container class="showcase-container">
-    <pilot-aside width="200px" class="showcase-sidebar">
+  <pt-container class="showcase-container">
+    <pt-aside width="200px" class="showcase-sidebar">
       <h3 class="sidebar-title">Components</h3>
-      <pilot-scrollbar>
+      <pt-scrollbar>
         <ul>
           <li
             v-for="component in components"
@@ -13,15 +13,15 @@
             {{ component.label }}
           </li>
         </ul>
-      </pilot-scrollbar>
-    </pilot-aside>
+      </pt-scrollbar>
+    </pt-aside>
 
-    <pilot-main class="showcase-main">
-      <pilot-scrollbar id="main-scroll-area">
+    <pt-main class="showcase-main">
+      <pt-scrollbar id="main-scroll-area">
         <component :is="activeComponent + 'Demo'"></component>
-      </pilot-scrollbar>
-    </pilot-main>
-  </pilot-container>
+      </pt-scrollbar>
+    </pt-main>
+  </pt-container>
 </template>
 
 <script>

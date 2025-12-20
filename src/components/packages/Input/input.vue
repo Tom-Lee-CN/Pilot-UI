@@ -15,14 +15,14 @@
       class="pilot-input__suffix"
     >
       <!-- 清空图标 -->
-      <pilot-icon
+      <pt-icon
         v-if="showClear"
         class="pilot-input__icon"
         name="circle-close"
         @click="handleClear"
       />
       <!-- 密码可见性图标 -->
-      <pilot-icon
+      <pt-icon
         v-if="showPasswordToggle"
         class="pilot-input__icon"
         :name="passwordIconName"

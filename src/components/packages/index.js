@@ -15,6 +15,8 @@ import PilotTabs, { PilotTabPane } from './Tabs';
 import PilotDrawer from './Drawer';
 import PilotLoading from './Loading'; // 导入 Loading 插件
 import MessageBox from './MessageBox'; // 1. 导入 MessageBox
+import Message from './Message/message'; // 消息提示组件
+import Notification from './Notification'; // 通知组件
 import { PilotContainer, PilotHeader, PilotFooter, PilotAside, PilotMain } from './Container';
 import PilotLink from './Link';
 import PilotBreadcrumb from './Breadcrumb';
@@ -63,15 +65,30 @@ const components = [
 
 const install = (app) => {
   components.forEach((component) => {
-    app.component(component.name, component);
+    if (component.name) {
+      let newName = component.name;
+      if (newName.startsWith('Pilot')) {
+        // 将 "PilotCard" 替换为 "ptCard"
+        newName = 'pt' + newName.substring(5);
+      } else {
+        // 为 "Row" 和 "Col" 等没有 "Pilot" 前缀的组件也加上前缀
+        // 例如 "Row" -> "ptRow"
+        newName = 'pt' + newName.charAt(0).toUpperCase() + newName.slice(1);
+      }
+      app.component(newName, component);
+    }
   });
 
   // 单独注册 Loading 指令插件
   app.use(PilotLoading);
-  // 3. 注册 InfiniteScroll 指令
+  // 注册 InfiniteScroll 指令
   app.use(PilotInfiniteScroll);
-  // 2. 将 MessageBox 挂载到全局
+  // 将 MessageBox 挂载到全局
   app.config.globalProperties.$messageBox = MessageBox;
+  // 全局消息提示
+  app.config.globalProperties.$message = Message;
+  // 全局通知
+  app.config.globalProperties.$notify = Notification;
 };
 
 export default {

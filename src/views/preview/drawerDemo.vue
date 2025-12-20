@@ -1,8 +1,8 @@
 <template>
   <div class="demo">
     <h3>Drawer Demo</h3>
-    <pilot-button @click="open = true">Open Drawer</pilot-button>
-    <pilot-drawer v-model="open" title="Drawer">Drawer content</pilot-drawer>
+    <pt-button @click="open = true">Open Drawer</pt-button>
+    <pt-drawer v-model="open" title="Drawer">Drawer content</pt-drawer>
   </div>
 </template>
 <script>

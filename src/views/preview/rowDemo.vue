@@ -1,15 +1,17 @@
 <template>
   <div class="demo">
     <h3>Row/Col Demo</h3>
-    <row>
-      <col :span="12"><pilot-card>Col 12</pilot-card></col>
-      <col :span="12"><pilot-card>Col 12</pilot-card></col>
-    </row>
+    <pt-row>
+      <pt-col :span="12"><pt-card>Col 12</pt-card></pt-col>
+      <pt-col :span="12"><pt-card>Col 12</pt-card></pt-col>
+    </pt-row>
   </div>
 </template>
 <script>
 export default { name: 'rowDemo' };
 </script>
 <style scoped>
-.demo { padding: 12px; }
+.demo {
+  padding: 12px;
+}
 </style>

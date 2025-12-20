@@ -2,11 +2,11 @@
   <div class="pilot-select" :class="{ 'is-disabled': disabled }" @click="toggleDropdown">
     <div class="pilot-select__input">
       <span :class="{ 'is-placeholder': !selectedLabel }">{{ selectedLabel || placeholder }}</span>
-      <pilot-icon
+      <pt-icon
         class="pilot-select__arrow"
         :class="{ 'is-reverse': dropdownVisible }"
         name="arrow-right"
-      ></pilot-icon>
+      ></pt-icon>
     </div>
     <transition name="pilot-select-dropdown">
       <div v-if="dropdownVisible" class="pilot-select__dropdown">
