@@ -19,10 +19,12 @@ export default {
     PilotBreadcrumbItem,
   },
   props: {
+    // 分隔符和分隔符的自定义类名
     separator: {
       type: String,
       default: '/',
     },
+    // 分隔符的自定义类名
     separatorClass: {
       type: String,
       default: '',
@@ -52,6 +54,8 @@ export default {
   methods: {
     getBreadcrumbs() {
       // 从路由记录中过滤出需要显示在面包屑的项
+      console.log(this.$route);
+
       this.breadcrumbs = this.$route.matched.filter((item) => item.meta && item.meta.title);
     },
   },

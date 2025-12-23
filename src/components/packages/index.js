@@ -4,7 +4,7 @@ import PilotAlert from './Alert';
 import PilotCard from './Card';
 import PilotInput from './Input';
 import PilotTextarea from './Textarea';
-import PilotSelect from './Select';
+import { PtSelect as PilotSelect, PtOption as PilotOption } from './Select/index.js';
 import PilotRadio from './Radio';
 import PilotRadioGroup from './RadioGroup';
 import Row from './Row';
@@ -30,6 +30,9 @@ import PilotStep from './Step';
 // import PilotSubmenu from './SubMenu';
 import PilotBacktop from './Backtop';
 
+import PilotCheckbox from './Checkbox';
+import PilotCheckboxGroup from './CheckboxGroup';
+
 const components = [
   PilotButton,
   PilotIcon,
@@ -38,6 +41,7 @@ const components = [
   PilotInput,
   PilotTextarea,
   PilotSelect,
+  PilotOption, // 新增：添加 Option 到组件列表
   PilotRadio,
   PilotRadioGroup,
   Row,
@@ -47,8 +51,7 @@ const components = [
   PilotTabs,
   PilotTabPane,
   PilotDrawer,
-  // 添加布局组件
-  PilotContainer,
+  PilotContainer, // 添加布局组件
   PilotHeader,
   PilotFooter,
   PilotAside,
@@ -61,6 +64,8 @@ const components = [
   PilotSteps,
   PilotStep,
   PilotBacktop,
+  PilotCheckbox,
+  PilotCheckboxGroup,
 ];
 
 const install = (app) => {
@@ -103,6 +108,7 @@ export {
   PilotInput,
   PilotTextarea,
   PilotSelect,
+  PilotOption, // 新增：添加 Option 到组件列表
   PilotRadio,
   PilotRadioGroup,
   Row,
@@ -125,4 +131,6 @@ export {
   PilotSteps,
   PilotStep,
   PilotBacktop,
+  PilotCheckbox,
+  PilotCheckboxGroup,
 };

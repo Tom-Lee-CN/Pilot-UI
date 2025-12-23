@@ -6,6 +6,7 @@ const routes = [
     path: '/',
     name: 'previewView',
     component: previewView,
+    meta: { title: '首页' }, // 第一级
   },
   // {
   //   path: '/1',

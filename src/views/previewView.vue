@@ -52,6 +52,8 @@ const demos = {
   TabpaneDemo: defineAsyncComponent(() => import('./preview/tabpaneDemo.vue')),
   TabsDemo: defineAsyncComponent(() => import('./preview/tabsDemo.vue')),
   TextareaDemo: defineAsyncComponent(() => import('./preview/textareaDemo.vue')),
+  MessageDemo: defineAsyncComponent(() => import('./preview/messageDemo.vue')),
+  CheckboxDemo: defineAsyncComponent(() => import('./preview/checkboxDemo.vue')),
 };
 
 export default {
@@ -63,6 +65,7 @@ export default {
     return {
       activeComponent: 'Button',
       components: [
+        { name: 'Checkbox', label: 'Checkbox' },
         { name: 'Alert', label: 'Alert' },
         { name: 'Backtop', label: 'Backtop' },
         { name: 'Breadcrumb', label: 'Breadcrumb' },
@@ -87,6 +90,7 @@ export default {
         { name: 'Tabpane', label: 'TabPane' },
         { name: 'Tabs', label: 'Tabs' },
         { name: 'Textarea', label: 'Textarea' },
+        { name: 'Message', label: 'Message' },
       ],
     };
   },

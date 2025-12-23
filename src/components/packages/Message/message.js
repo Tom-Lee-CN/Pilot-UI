@@ -3,6 +3,10 @@ import MessageConstructor from './message.vue';
 
 // 存储所有 Message 实例的数组
 const instances = [];
+// 存储待处理消息的队列
+const messageQueue = [];
+// 最大同时显示的实例数量
+const MAX_INSTANCES = 5;
 // 实例之间的垂直间距
 const GAP_SIZE = 5;
 // 用于生成唯一 ID 的种子数
@@ -13,6 +17,12 @@ let seed = 1;
  * @param {object | string} options - 配置对象或要显示的字符串消息
  */
 const Message = (options) => {
+  // 如果当前实例数量达到上限，则将请求加入队列
+  if (instances.length >= MAX_INSTANCES) {
+    messageQueue.push(options);
+    return;
+  }
+
   // 如果传入的是字符串，则转换为标准 options 对象
   if (typeof options === 'string') {
     options = {
@@ -128,6 +138,15 @@ function handleClose(id, userOnClose) {
     const inst = instances[i];
     // 将它们的偏移量向上移动，填补空缺
     inst.component.proxy.offsetValue -= removedHeight + GAP_SIZE;
+  }
+
+  // 处理完关闭逻辑后，检查队列中是否有待处理的消息
+  if (messageQueue.length > 0) {
+    // 从队列中取出下一个消息并显示
+    const nextMessageOptions = messageQueue.shift();
+    if (nextMessageOptions) {
+      Message(nextMessageOptions);
+    }
   }
 }
 

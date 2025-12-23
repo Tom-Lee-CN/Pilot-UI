@@ -2,6 +2,9 @@
   <div class="demo">
     <h3>Link Demo</h3>
     <pt-link href="#">A link</pt-link>
+    <pt-link href="#" type="warning">A link</pt-link>
+    <pt-link href="#" type="danger">A link</pt-link>
+    <pt-link href="#" type="success">A link</pt-link>
   </div>
 </template>
 <script>

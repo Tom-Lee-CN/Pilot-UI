@@ -4,6 +4,7 @@
     <pt-radio-group v-model="r">
       <pt-radio label="a">A</pt-radio>
       <pt-radio label="b">B</pt-radio>
+      <pt-radio label="c">C</pt-radio>
     </pt-radio-group>
     <p>Selected: {{ r }}</p>
   </div>
