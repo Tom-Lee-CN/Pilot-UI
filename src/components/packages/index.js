@@ -32,6 +32,7 @@ import PilotBacktop from './Backtop';
 import PilotCheckbox from './Checkbox';
 import PilotCheckboxGroup from './CheckboxGroup';
 import { PtDropdown as PilotDropdown, PtDropdownItem as PilotDropdownItem } from './Dropdown';
+import { PtCascader as PilotCascader, PtCascaderPanel as PilotCascaderPanel } from './Cascader';
 
 const components = [
   PilotButton,
@@ -68,6 +69,11 @@ const components = [
   PilotCheckboxGroup,
   PilotDropdown,
   PilotDropdownItem,
+  // PilotMenu,
+  // PilotMenuItem,
+  // PilotSubmenu,
+  PilotCascader,
+  PilotCascaderPanel,
 ];
 
 const install = (app) => {
@@ -137,4 +143,6 @@ export {
   PilotCheckboxGroup,
   PilotDropdown,
   PilotDropdownItem,
+  PilotCascader,
+  PilotCascaderPanel,
 };

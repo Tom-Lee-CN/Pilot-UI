@@ -55,6 +55,7 @@ const demos = {
   MessageDemo: defineAsyncComponent(() => import('./preview/messageDemo.vue')),
   CheckboxDemo: defineAsyncComponent(() => import('./preview/checkboxDemo.vue')),
   DropdownDemo: defineAsyncComponent(() => import('./preview/dropdownDemo.vue')),
+  CascaderDemo: defineAsyncComponent(() => import('./preview/cascaderDemo.vue')),
 };
 
 export default {
@@ -66,6 +67,7 @@ export default {
     return {
       activeComponent: 'Button',
       components: [
+        { name: 'Cascader', label: 'Cascader' },
         { name: 'Dropdown', label: 'Dropdown' },
         { name: 'Checkbox', label: 'Checkbox' },
         { name: 'Alert', label: 'Alert' },
