@@ -54,6 +54,7 @@ const demos = {
   TextareaDemo: defineAsyncComponent(() => import('./preview/textareaDemo.vue')),
   MessageDemo: defineAsyncComponent(() => import('./preview/messageDemo.vue')),
   CheckboxDemo: defineAsyncComponent(() => import('./preview/checkboxDemo.vue')),
+  DropdownDemo: defineAsyncComponent(() => import('./preview/dropdownDemo.vue')),
 };
 
 export default {
@@ -65,6 +66,7 @@ export default {
     return {
       activeComponent: 'Button',
       components: [
+        { name: 'Dropdown', label: 'Dropdown' },
         { name: 'Checkbox', label: 'Checkbox' },
         { name: 'Alert', label: 'Alert' },
         { name: 'Backtop', label: 'Backtop' },

@@ -29,9 +29,9 @@ import PilotStep from './Step';
 // import PilotMenuItem from './MenuItem';
 // import PilotSubmenu from './SubMenu';
 import PilotBacktop from './Backtop';
-
 import PilotCheckbox from './Checkbox';
 import PilotCheckboxGroup from './CheckboxGroup';
+import { PtDropdown as PilotDropdown, PtDropdownItem as PilotDropdownItem } from './Dropdown';
 
 const components = [
   PilotButton,
@@ -66,6 +66,8 @@ const components = [
   PilotBacktop,
   PilotCheckbox,
   PilotCheckboxGroup,
+  PilotDropdown,
+  PilotDropdownItem,
 ];
 
 const install = (app) => {
@@ -133,4 +135,6 @@ export {
   PilotBacktop,
   PilotCheckbox,
   PilotCheckboxGroup,
+  PilotDropdown,
+  PilotDropdownItem,
 };
