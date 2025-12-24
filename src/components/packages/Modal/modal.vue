@@ -38,7 +38,7 @@ export default {
     },
     width: {
       type: String,
-      default: '50%',
+      default: '30%',
     },
     showClose: {
       type: Boolean,

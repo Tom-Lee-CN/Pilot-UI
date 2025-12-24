@@ -1,12 +1,17 @@
 <template>
   <div class="demo">
     <h3>Link Demo</h3>
-    <pilot-link href="#">A link</pilot-link>
+    <pt-link href="#">A link</pt-link>
+    <pt-link href="#" type="warning">A link</pt-link>
+    <pt-link href="#" type="danger">A link</pt-link>
+    <pt-link href="#" type="success">A link</pt-link>
   </div>
 </template>
 <script>
 export default { name: 'linkDemo' };
 </script>
 <style scoped>
-.demo { padding: 12px; }
+.demo {
+  padding: 12px;
+}
 </style>

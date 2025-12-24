@@ -15,14 +15,14 @@
       class="pilot-input__suffix"
     >
       <!-- 清空图标 -->
-      <pilot-icon
+      <pt-icon
         v-if="showClear"
         class="pilot-input__icon"
         name="circle-close"
         @click="handleClear"
       />
       <!-- 密码可见性图标 -->
-      <pilot-icon
+      <pt-icon
         v-if="showPasswordToggle"
         class="pilot-input__icon"
         :name="passwordIconName"
@@ -43,6 +43,11 @@ export default {
     modelValue: {
       type: [String, Number],
       default: '',
+    },
+    size: {
+      type: String,
+      default: 'medium', // 默认为中等尺寸
+      validator: (value) => ['large', 'medium', 'small'].includes(value),
     },
     placeholder: {
       type: String,
@@ -84,6 +89,7 @@ export default {
   computed: {
     inputClasses() {
       return {
+        [`pilot-input--${this.size}`]: this.size, // 根据 size prop 添加类
         'is-disabled': this.disabled,
         'pilot-input--suffix':
           this.showClear || this.showPasswordToggle || (this.showWordLimit && this.maxlength),
@@ -146,6 +152,24 @@ export default {
   font-size: $input-font-size;
   display: inline-block;
   width: 100%;
+  // 尺寸样式
+  &.pilot-input--large {
+    .pilot-input__inner {
+      height: $input-height-large;
+      line-height: $input-height-large;
+      padding: 0 $input-padding-x-large;
+      font-size: $input-font-size-large;
+    }
+  }
+
+  &.pilot-input--small {
+    .pilot-input__inner {
+      height: $input-height-small;
+      line-height: $input-height-small;
+      padding: 0 $input-padding-x-small;
+      font-size: $input-font-size-small;
+    }
+  }
 
   &.is-disabled .pilot-input__inner {
     background-color: $input-disabled-bg;

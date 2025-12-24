@@ -24,6 +24,11 @@ $success-color: #67c23a;
 $warning-color: #e6a23c;
 $danger-color: #f56c6c;
 $info-color: #909399;
+$primary-color-light-9: #ecf5ff;
+$text-color-regular: #606266 !default;
+$text-color-secondary: #909399 !default;
+$text-color-placeholder: #c0c4cc !default;
+$text-color-disabled: #c0c4cc !default;
 
 // 文字色 (Text Colors)
 $text-color-primary: #303133; // 主要文字
@@ -77,17 +82,18 @@ $box-shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
 $box-shadow-dark:
   0 2px 4px rgba(0, 0, 0, 0.12),
   0 0 6px rgba(0, 0, 0, 0.04) !default;
+$box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
 
 // --------------------------------------------------------------------------
 // 按钮组件 (Button Component)
 // --------------------------------------------------------------------------
 // 内边距 (Padding)
-$button-padding-y-default: 12px;
-$button-padding-x-default: 20px;
-$button-padding-y-large: 14px;
-$button-padding-x-large: 22px;
-$button-padding-y-small: 9px;
-$button-padding-x-small: 15px;
+$button-padding-y-default: 8px;
+$button-padding-x-default: 12px;
+$button-padding-y-large: 8px;
+$button-padding-x-large: 10px;
+$button-padding-y-small: 6px;
+$button-padding-x-small: 8px;
 
 // 圆角 (Border Radius)
 $button-border-radius-default: 4px;
@@ -118,8 +124,8 @@ $card-box-shadow: $box-shadow-base;
 // --------------------------------------------------------------------------
 // 输入框组件 (Input Component)
 // --------------------------------------------------------------------------
-$input-height: 40px;
-$input-padding-x: 15px;
+$input-height: 32px !default;
+$input-padding-x: 12px !default;
 $input-border-radius: 4px;
 $input-font-size: $font-size-base;
 $input-color: $text-color-regular;
@@ -131,6 +137,12 @@ $input-focus-border-color: $primary-color;
 $input-suffix-right: 10px;
 $input-suffix-icon-color: $text-color-placeholder;
 $input-suffix-icon-hover-color: $text-color-secondary;
+$input-height-large: 40px !default;
+$input-height-small: 24px !default;
+$input-padding-x-large: 16px !default;
+$input-padding-x-small: 8px !default;
+$input-font-size-large: $font-size-large !default;
+$input-font-size-small: $font-size-small !default;
 
 // --------------------------------------------------------------------------
 // Radio Component
@@ -153,24 +165,34 @@ $radio-margin-right: 30px !default;
 // Select Component
 // --------------------------------------------------------------------------
 $select-input-height: $input-height !default;
-$select-input-color: $input-color !default;
+$select-input-color: $text-color-primary !default;
 $select-input-placeholder-color: $input-placeholder-color !default;
 $select-input-border-color: $border-color !default;
 $select-input-border-radius: $input-border-radius !default;
-$select-input-hover-border-color: $text-color-placeholder !default;
+$select-input-hover-border-color: $primary-color !default;
+$select-input-focus-border-color: $primary-color !default;
+
 $select-disabled-bg: $input-disabled-bg !default;
 $select-disabled-border-color: $input-disabled-border !default;
 $select-disabled-color: $input-disabled-color !default;
-$select-dropdown-bg: $color-white !default;
-$select-dropdown-shadow: $card-box-shadow !default;
+
+$select-dropdown-background-color: #fff !default;
+$select-dropdown-bg: $select-dropdown-background-color !default;
+$select-dropdown-shadow: $box-shadow-light !default;
 $select-dropdown-border-color: $border-color-light !default;
 $select-dropdown-padding: 6px 0 !default;
+
 $select-option-height: 34px !default;
 $select-option-font-size: $font-size-base !default;
-$select-option-text-color: $text-color-regular !default;
-$select-option-hover-bg: $fill-color-light !default;
+$select-option-text-color: $text-color-primary !default;
+$select-option-hover-bg: $primary-color-light-9 !default;
 $select-option-selected-color: $primary-color !default;
-$select-option-selected-font-weight: 700 !default;
+$select-option-selected-font-weight: bold !default;
+$select-option-disabled-color: #c0c4cc !default;
+$select-option-disabled-background: #f5f7fa !default;
+
+$select-tag-background: #f0f2f5 !default;
+$select-tag-color: #909399 !default;
 
 // --------------------------------------------------------------------------
 // Textarea Component
@@ -379,18 +401,23 @@ $link-disabled-text-color: $text-color-placeholder !default;
   --pilot-card-header-padding-x: #{$card-header-padding-x};
   --pilot-card-box-shadow: #{$card-box-shadow};
 
-  // 输入框组件 (Input Component)
+  // -- Input
   --pilot-input-height: #{$input-height};
+  --pilot-input-height-large: #{$input-height-large};
+  --pilot-input-height-small: #{$input-height-small};
   --pilot-input-padding-x: #{$input-padding-x};
-  --pilot-input-border-radius: #{$input-border-radius};
+  --pilot-input-padding-x-large: #{$input-padding-x-large};
+  --pilot-input-padding-x-small: #{$input-padding-x-small};
   --pilot-input-font-size: #{$input-font-size};
+  --pilot-input-font-size-large: #{$input-font-size-large};
+  --pilot-input-font-size-small: #{$input-font-size-small};
   --pilot-input-color: #{$input-color};
   --pilot-input-placeholder-color: #{$input-placeholder-color};
   --pilot-input-disabled-bg: #{$input-disabled-bg};
   --pilot-input-disabled-border: #{$input-disabled-border};
   --pilot-input-disabled-color: #{$input-disabled-color};
   --pilot-input-focus-border-color: #{$input-focus-border-color};
-  --pilot-input-suffix-right: #{$input-suffix-right};
+  --pilot-input-border-radius: #{$input-border-radius};
   --pilot-input-suffix-icon-color: #{$input-suffix-icon-color};
   --pilot-input-suffix-icon-hover-color: #{$input-suffix-icon-hover-color};
 

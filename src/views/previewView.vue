@@ -1,8 +1,8 @@
 <template>
-  <pilot-container class="showcase-container">
-    <pilot-aside width="200px" class="showcase-sidebar">
+  <pt-container class="showcase-container">
+    <pt-aside width="200px" class="showcase-sidebar">
       <h3 class="sidebar-title">Components</h3>
-      <pilot-scrollbar>
+      <pt-scrollbar>
         <ul>
           <li
             v-for="component in components"
@@ -13,15 +13,15 @@
             {{ component.label }}
           </li>
         </ul>
-      </pilot-scrollbar>
-    </pilot-aside>
+      </pt-scrollbar>
+    </pt-aside>
 
-    <pilot-main class="showcase-main">
-      <pilot-scrollbar id="main-scroll-area">
+    <pt-main class="showcase-main">
+      <pt-scrollbar id="main-scroll-area">
         <component :is="activeComponent + 'Demo'"></component>
-      </pilot-scrollbar>
-    </pilot-main>
-  </pilot-container>
+      </pt-scrollbar>
+    </pt-main>
+  </pt-container>
 </template>
 
 <script>
@@ -52,6 +52,10 @@ const demos = {
   TabpaneDemo: defineAsyncComponent(() => import('./preview/tabpaneDemo.vue')),
   TabsDemo: defineAsyncComponent(() => import('./preview/tabsDemo.vue')),
   TextareaDemo: defineAsyncComponent(() => import('./preview/textareaDemo.vue')),
+  MessageDemo: defineAsyncComponent(() => import('./preview/messageDemo.vue')),
+  CheckboxDemo: defineAsyncComponent(() => import('./preview/checkboxDemo.vue')),
+  DropdownDemo: defineAsyncComponent(() => import('./preview/dropdownDemo.vue')),
+  CascaderDemo: defineAsyncComponent(() => import('./preview/cascaderDemo.vue')),
 };
 
 export default {
@@ -63,6 +67,9 @@ export default {
     return {
       activeComponent: 'Button',
       components: [
+        { name: 'Cascader', label: 'Cascader' },
+        { name: 'Dropdown', label: 'Dropdown' },
+        { name: 'Checkbox', label: 'Checkbox' },
         { name: 'Alert', label: 'Alert' },
         { name: 'Backtop', label: 'Backtop' },
         { name: 'Breadcrumb', label: 'Breadcrumb' },
@@ -87,6 +94,7 @@ export default {
         { name: 'Tabpane', label: 'TabPane' },
         { name: 'Tabs', label: 'Tabs' },
         { name: 'Textarea', label: 'Textarea' },
+        { name: 'Message', label: 'Message' },
       ],
     };
   },

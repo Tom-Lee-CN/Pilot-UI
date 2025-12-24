@@ -133,6 +133,7 @@ export default {
       const step = (timestamp) => {
         if (!start) start = timestamp;
         const progress = timestamp - start;
+        // 计算当前滚动距离
         const nextScrollTop = from + ((to - from) * progress) / duration;
 
         if (progress < duration) {
@@ -166,10 +167,10 @@ export default {
      */
     throttle(fn, delay) {
       let timer = null;
-      return function (...args) {
+      return function () {
         if (!timer) {
           timer = setTimeout(() => {
-            fn.apply(this, args);
+            fn.call(this);
             timer = null;
           }, delay);
         }
